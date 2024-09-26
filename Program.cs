@@ -1,16 +1,17 @@
-﻿public class Pattern
+﻿public class NumberReverse
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("enter number of lines required(n)");
-        int n = Convert.ToInt32(Console.ReadLine());
-        for (int i = 0; i < n; i++)
+        Console.WriteLine("enter number to be reversed");
+        int number = Convert.ToInt32(Console.ReadLine());
+        int reversed = 0;
+        while (number > 0)
         {
-            for (int j = 0; j <=i; j++)
-            {
-                Console.Write("*");
-            }
-            Console.WriteLine("\n");
+            int remainder = number % 10;
+            reversed = reversed * 10 + remainder;
+            number = number / 10;
         }
+        Console.WriteLine(reversed);
     }
+
 }
