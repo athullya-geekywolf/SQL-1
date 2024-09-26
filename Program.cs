@@ -1,30 +1,24 @@
-﻿public class Charactermatch
+﻿public class CheckPrime
 {
     public static void Main(string[] args)
     {
-        L1: Console.WriteLine("enter the character");
-        string character = Console.ReadLine();
-        switch(character)
+        int number;
+        int flag = 0;
+        Console.WriteLine("enter number");
+        number = Convert.ToInt32(Console.ReadLine());
+        for (int i = 2; i <= number/2; i++)
         {
-            case "c":
-                Console.WriteLine("Cricket");
+            if(number % i == 0)
+            {
+                Console.WriteLine("Not prime");
+                flag = 1;
                 break;
-            case "f":
-                Console.WriteLine("Football");
-                break;
-            case "h":
-                Console.WriteLine("hockey");
-                break;
-            case "t":
-                Console.WriteLine("Tennis");
-                break;
-            case "b":
-                Console.WriteLine("basketball");
-                break;
-            default:
-                Console.WriteLine("Invalid input, try again");
-                goto L1;
-                
+            }
+
+        }
+        if (flag == 0)
+        {
+            Console.WriteLine("Number is prime");
         }
     }
 }
