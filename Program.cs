@@ -1,31 +1,24 @@
-﻿public class Tax
+﻿public class Program3
 {
-    public static void Main(String[] args)
-    {
-        Console.WriteLine("enter the amount");
-        double tax;
+	public static void Main(String[] args)
+	{
+		int[] num = new int[3];
+		Console.WriteLine("Enter three numbers");
+		for (int i = 0; i < 3; i++)
+		{
+			num[i]=Convert.ToInt32(Console.ReadLine());
+			
+		}
+		int maxi = num[0];
+        for (int i = 1; i < 3; i++)
+        {
+			if (num[i]>maxi)
+			{
+				maxi=num[i];
+			}
 
+        }
+		Console.WriteLine("largest:"+maxi);
 
-        int amount = Convert.ToInt32(Console.ReadLine());
-        if (amount < 10000)
-        {
-            Console.WriteLine((5.0 / 100) * amount);
-        }
-        else if (amount > 10000 & amount < 15000)
-        {
-            Console.WriteLine((7.5 / 100) * amount);
-        }
-        else if (amount > 15000 & amount < 20000)
-        {
-            Console.WriteLine((10.0 / 100) * amount);
-        }
-        else if (amount > 20000 & amount < 25000)
-        {
-            Console.WriteLine((12.5 / 100) * amount);
-        }
-        else
-        {
-            Console.WriteLine((15.0 / 100) * amount);
-        }
     }
 }
