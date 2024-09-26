@@ -44,5 +44,13 @@ UPDATE EMPLOYEE
 SET SALARY=SALARY+(0.1*SALARY)
 WHERE DEPARTMENT='IT';
 
+"Write a SELECT statement to find the highest salary in the Employees table.How would you add a new column named "HireDate" of type DATE to the Employees table?"
+select max(salary) from employee;
+
+ALTER TABLE Employee
+ADD HireDate DATE;
+
+
+
 
 
