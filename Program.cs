@@ -1,24 +1,33 @@
-﻿public class CheckPrime
+﻿public class Fibonacci
 {
     public static void Main(string[] args)
     {
-        int number;
-        int flag = 0;
-        Console.WriteLine("enter number");
-        number = Convert.ToInt32(Console.ReadLine());
-        for (int i = 2; i <= number/2; i++)
-        {
-            if(number % i == 0)
-            {
-                Console.WriteLine("Not prime");
-                flag = 1;
-                break;
-            }
+        Console.WriteLine("Enter the number of terms(n) required");
+        int n=Convert.ToInt32(Console.ReadLine());
+        int firstnum = 0;
+        int secondnum=1;
 
-        }
-        if (flag == 0)
+
+
+        for (int i = 1; i <= n; i++)
         {
-            Console.WriteLine("Number is prime");
+            if (i == 1)
+            {
+                Console.WriteLine(firstnum);
+            }
+            else if (i == 2)
+            {
+                Console.WriteLine(secondnum);
+            }
+            else
+            {
+                int next = firstnum + secondnum;
+                Console.WriteLine(next);
+                firstnum = secondnum;
+                secondnum = next;
+            }
         }
+        
+
     }
 }
