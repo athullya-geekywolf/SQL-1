@@ -1,17 +1,17 @@
-﻿public class NumberReverse
+﻿public class SumOfDigits
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("enter number to be reversed");
+        Console.WriteLine("enter number");
         int number = Convert.ToInt32(Console.ReadLine());
-        int reversed = 0;
-        while (number > 0)
+        int sumofdigits = 0;
+        while (number != 0)
         {
-            int remainder = number % 10;
-            reversed = reversed * 10 + remainder;
+            int last_digit = number % 10;
+            sumofdigits += last_digit;
             number = number / 10;
-        }
-        Console.WriteLine(reversed);
-    }
 
+        }
+        Console.WriteLine(sumofdigits);
+    }
 }
