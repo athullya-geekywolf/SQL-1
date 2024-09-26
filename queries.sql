@@ -50,6 +50,23 @@ select max(salary) from employee;
 ALTER TABLE Employee
 ADD HireDate DATE;
 
+"Write an INSERT statement to add a new employee named "Sarah Brown" in the "Marketing" department with a salary of 72000.00."
+INSERT INTO Employee (EMPID, FirstName, LastName, Department, Salary)
+VALUES (008, 'Sarah', 'Brown', 'Marketing', 72000.00);
+
+ "How would you modify the table to ensure that the Salary column cannot contain negative values?"
+ALTER TABLE Employee
+ADD CONSTRAINT Check_Salary CHECK (Salary >= 0);
+
+"How would you add a UNIQUE constraint to the Employees table to ensure that no two employees can have the same email address"
+ALTER TABLE Employee ADD email varchar(20);--handle null cases
+ALTER TABLE Employee ADD CONSTRAINT uq_email UNIQUE (email);
+    
+"Write an ALTER TABLE statement to add an "Email" column to the Employees table with a UNIQUE constraint that allows NULL values"
+ALTER TABLE Employee ADD NewEmail VARCHAR(30);
+CREATE UNIQUE INDEX unique_email ON Employee (NewEmail) WHERE NewEmail IS NOT NULL;
+
+
 
 
 
