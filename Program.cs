@@ -1,17 +1,16 @@
-﻿public class SumOfDigits
+﻿public class SumOfSquares
 {
     public static void Main(string[] args)
     {
         Console.WriteLine("enter number");
-        int number = Convert.ToInt32(Console.ReadLine());
-        int sumofdigits = 0;
-        while (number != 0)
+        int number=Convert.ToInt32(Console.ReadLine());
+        int sum_of_squares = 0;
+        while (number > 0)
         {
-            int last_digit = number % 10;
-            sumofdigits += last_digit;
+            int last = number % 10;
+            sum_of_squares=sum_of_squares+last*last;
             number = number / 10;
-
         }
-        Console.WriteLine(sumofdigits);
+        Console.WriteLine(sum_of_squares);
     }
 }
