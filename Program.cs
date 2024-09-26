@@ -1,32 +1,30 @@
-﻿public class AllPrime
+﻿public class Charactermatch
 {
     public static void Main(string[] args)
     {
-        int number=100;
-        
-        
-        Console.WriteLine("Prime numbers under 100");
-        for(int i=2;i<number; i++) 
+        L1: Console.WriteLine("enter the character");
+        string character = Console.ReadLine();
+        switch(character)
         {
-            int flag = 0;
-            for (int j = 2; j <= i / 2; j++)
-            {
-                if (i % j == 0)
-                {
-                    flag = 1;
-                    break;
-                   
-                    
-                }
-
-            }
-            if (flag == 0)
-            {
-                Console.WriteLine(i);
-            }
-
-            
+            case "c":
+                Console.WriteLine("Cricket");
+                break;
+            case "f":
+                Console.WriteLine("Football");
+                break;
+            case "h":
+                Console.WriteLine("hockey");
+                break;
+            case "t":
+                Console.WriteLine("Tennis");
+                break;
+            case "b":
+                Console.WriteLine("basketball");
+                break;
+            default:
+                Console.WriteLine("Invalid input, try again");
+                goto L1;
+                
         }
-        
     }
 }
