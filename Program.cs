@@ -1,31 +1,17 @@
-﻿public class Fibonacci
+﻿public class Palindrome
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Enter the number of terms(n) required");
-        int n=Convert.ToInt32(Console.ReadLine());
-        int firstnum = 0;
-        int secondnum=1;
-
-
-
-        for (int i = 1; i <= n; i++)
+        Console.WriteLine("enter the string");
+        string str=Console.ReadLine();
+        string reversed = "";
+        for(int i=str.Length-1;i>=0; i--)
         {
-            if (i == 1)
-            {
-                Console.WriteLine(firstnum);
-            }
-            else if (i == 2)
-            {
-                Console.WriteLine(secondnum);
-            }
-            else
-            {
-                int next = firstnum + secondnum;
-                Console.WriteLine(next);
-                firstnum = secondnum;
-                secondnum = next;
-            }
+            reversed += str[i];
+        }
+        if(reversed==str)
+        {
+            Console.WriteLine("Palindrome");
         }
         
 
