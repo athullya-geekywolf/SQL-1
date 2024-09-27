@@ -108,6 +108,21 @@ ON P.PRODUCTID = S.PRODUCTID
 GROUP BY P.CATEGORY;
 
 --List the top 5 customers by their total purchase amount. Include the CustomerID and total purchase amount.
+SELECT TOP 5 C.CUSTOMERID, SUM(S.QUANTITY*S.UNITPRICE)AS PURCHASE_AMOUNT
+FROM CUSTOMERS C
+JOIN SALES S
+ON C.CUSTOMERID=S.CUSTOMERID
+GROUP BY C.CUSTOMERID
+ORDER BY PURCHASE_AMOUNT DESC;
+
+--Determine the number of sales made each month in the year 2023. Display the month and the count of sales.
+SELECT MONTH(SALEDATE) AS SALE_MONTH,COUNT(SALEID)
+FROM SALES 
+WHERE YEAR(SALEDATE)='2023'
+GROUP BY SALEDATE;
+
+--Calculate the total revenue for each state, but only for states with more than $10,000 in total sales.
+
 
 
 
