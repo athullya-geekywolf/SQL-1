@@ -145,6 +145,10 @@ ON C.CUSTOMERID=S.CUSTOMERID
 GROUP BY C.CUSTOMERID ;
 
 --Find the customers who have made purchases on at least 5 different dates. Display the CustomerID and the count of distinct purchase dates.
+SELECT S.CUSTOMERID,COUNT(DISTINCT S.SALEDATE) AS COUNT_OF_PURCHASE_DATE
+FROM SALES S
+GROUP BY S.CUSTOMERID
+HAVING COUNT(DISTINCT S.SALEDATE) > 5;
 
 
 
