@@ -68,5 +68,50 @@ WHERE FIRSTNAME
 LIKE '%AN%E' ;
 
 
+----------------------------------------------------------------------------------------
+CREATE TABLE Products (
+    ProductID INT IDENTITY(10,1) PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Category VARCHAR(50)
+);
+
+CREATE TABLE Customers (
+    CustomerID INT IDENTITY(101,1) PRIMARY KEY,
+    CustomerName VARCHAR(100),
+    City VARCHAR(50),
+    State VARCHAR(2)
+);
+
+CREATE TABLE Sales (
+    SaleID INT IDENTITY(1,1) PRIMARY KEY,
+    ProductID INT,
+    CustomerID INT,
+    SaleDate DATE,
+    Quantity INT,
+    UnitPrice DECIMAL(10, 2),
+	FOREIGN KEY(PRODUCTID) REFERENCES PRODUCTS(PRODUCTID),
+	FOREIGN KEY (CUSTOMERID) REFERENCES CUSTOMERS(CUSTOMERID)
+);
+
+--Calculate the total sales amount for each product. Display the ProductID and total sales amount.
+SELECT P.PRODUCTID, SUM(S.QUANTITY*S.UNITPRICE) AS SALES_AMOUNT
+FROM PRODUCTS P
+LEFT JOIN SALES S
+ON P.PRODUCTID = S.PRODUCTID
+GROUP BY P.PRODUCTID;
+
+--Find the average quantity sold per sale for each product category.
+SELECT P.CATEGORY, AVG(S.QUANTITY) AS AVG_SOLD_QUANTITY
+FROM PRODUCTS P
+LEFT JOIN SALES S
+ON P.PRODUCTID = S.PRODUCTID
+GROUP BY P.CATEGORY;
+
+--List the top 5 customers by their total purchase amount. Include the CustomerID and total purchase amount.
+
+
+
+
+
 
 
