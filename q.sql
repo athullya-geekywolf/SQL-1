@@ -94,11 +94,9 @@ CREATE TABLE Sales (
 );
 
 --Calculate the total sales amount for each product. Display the ProductID and total sales amount.
-SELECT P.PRODUCTID, SUM(S.QUANTITY*S.UNITPRICE) AS SALES_AMOUNT
-FROM PRODUCTS P
-LEFT JOIN SALES S
-ON P.PRODUCTID = S.PRODUCTID
-GROUP BY P.PRODUCTID;
+SELECT S.PRODUCTID, SUM(S.QUANTITY*S.UNITPRICE) AS SALES_AMOUNT
+FROM SALES S
+GROUP BY S.PRODUCTID;
 
 --Find the average quantity sold per sale for each product category.
 SELECT P.CATEGORY, AVG(S.QUANTITY) AS AVG_SOLD_QUANTITY
@@ -108,11 +106,9 @@ ON P.PRODUCTID = S.PRODUCTID
 GROUP BY P.CATEGORY;
 
 --List the top 5 customers by their total purchase amount. Include the CustomerID and total purchase amount.
-SELECT TOP 5 C.CUSTOMERID, SUM(S.QUANTITY*S.UNITPRICE)AS PURCHASE_AMOUNT
-FROM CUSTOMERS C
-JOIN SALES S
-ON C.CUSTOMERID=S.CUSTOMERID
-GROUP BY C.CUSTOMERID
+SELECT TOP 5 S.CUSTOMERID, SUM(S.QUANTITY*S.UNITPRICE)AS PURCHASE_AMOUNT
+FROM SALES S
+GROUP BY S.CUSTOMERID
 ORDER BY PURCHASE_AMOUNT DESC;
 
 --Determine the number of sales made each month in the year 2023. Display the month and the count of sales.
