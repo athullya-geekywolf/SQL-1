@@ -34,3 +34,39 @@ WHERE LastName LIKE 'B%'
 SELECT *
 FROM Employees
 WHERE FirstName LIKE '[A-M]%';
+
+--List employees whose last name doesn't start with a vowel (A, E, I, O, U).
+
+SELECT * FROM EMPLOYEES
+WHERE LASTNAME LIKE '[^AEIOU]%';
+
+--Identify employees earning more than $80,000 annually.
+SELECT * FROM EMPLOYEES
+WHERE SALARY > 80000;
+
+--Find employees who joined the company before 2020.
+
+SELECT * FROM EMPLOYEES
+WHERE year(HireDate) < 2020;
+
+--List all employees not named 'John' (first name).
+
+SELECT * FROM EMPLOYEES
+WHERE FirstName NOT LIKE 'JOHN';
+
+--Identify Marketing department employees earning $60,000 or less who were hired after June 30, 2019.
+SELECT * 
+FROM EMPLOYEES
+WHERE DEPARTMENT='MARKETING' 
+AND SALARY < 60000
+AND HIREDATE > '2019-06-30';
+
+--Find employees whose first name contains the letters 'an' anywhere and ends with 'e'.
+SELECT * 
+FROM EMPLOYEES
+WHERE FIRSTNAME 
+LIKE '%AN%E' ;
+
+
+
+
