@@ -122,6 +122,33 @@ WHERE YEAR(SALEDATE)='2023'
 GROUP BY SALEDATE;
 
 --Calculate the total revenue for each state, but only for states with more than $10,000 in total sales.
+SELECT C.[STATE] ,SUM(S.QUANTITY * S.UNITPRICE) AS REVENUE
+FROM CUSTOMERS C
+JOIN SALES S
+ON C.CUSTOMERID=S.CUSTOMERID
+GROUP BY C.[STATE]
+HAVING SUM(S.QUANTITY * S.UNITPRICE)> 10000;
+
+--Find products that have been sold more than 100 times in total. Display the ProductID, ProductName, and the total quantity sold.
+SELECT P.PRODUCTID,P.PRODUCTNAME,SUM(S.QUANTITY) AS TOTAL_QUANTITY
+FROM PRODUCTS P
+JOIN SALES S
+ON P.PRODUCTID=S.PRODUCTID
+GROUP BY P.PRODUCTNAME, P.PRODUCTID
+HAVING SUM(S.QUANTITY) > 100;
+
+--For each customer, find the date of their first purchase and the date of their most recent purchase.
+SELECT C.CUSTOMERID,MIN(S.SALEDATE) AS FIRST_PURCHASE,MAX(S.SALEDATE) AS RECENT_PURCHASE
+FROM CUSTOMERS C
+LEFT JOIN SALES S
+ON C.CUSTOMERID=S.CUSTOMERID
+GROUP BY C.CUSTOMERID ;
+
+--Find the customers who have made purchases on at least 5 different dates. Display the CustomerID and the count of distinct purchase dates.
+
+
+
+
 
 
 
