@@ -157,6 +157,15 @@ FROM STRING_SPLIT(@Fruits, ',');
 select * from skills
 cross apply string_split(skilllist,',');
 
+-- Write a query to display the current date and time.
+SELECT GETDATE() AS CurrentDateTime;
+
+-- From an 'Orders' table, find all orders placed in the last 24 hours.
+-- Display the current UTC date and time.
+SELECT GETUTCDATE() AS CurrentUTCDateTime;
+
+-- Write a query to show the time difference between local time and UTC time.
+
 
 
 
