@@ -89,6 +89,78 @@ SELECT REPLACE('database management', 'a', 'e') AS UpdatedString;
 -- From a 'Products' table, write a query to replace all spaces in product names with underscores.
 SELECT REPLACE(PRODSS, ' ', '_') AS UpdatedString FROM PRODUCTS;
 
+-- Create a string of 10 asterisks (*).
+SELECT REPLICATE('*',10) AS REPLICATEDSTRING
+
+-- Write a query to pad all product codes in a 'Products' table to a length of 10 characters with leading zeros.
+UPDATE PRODUCTS 
+SET PRODCODE=REPLICATE('0',10-LEN(PRODCODE))+PRODCODE;
+
+--Insert the string 'New ' at the beginning of 'York City'
+DECLARE @S VARCHAR(20)='YORK CITY';
+SELECT CONCAT('NEW',' ',@S) AS FullString;
+
+-- From an 'Emails' table, mask the username part of email addresses, showing only the first and last characters.
+SELECT * FROM EMAILS;
+SELECT CONCAT(
+LEFT(MAILID,1),
+REPLICATE('*',LEN(MAILID)-CHARINDEX('@',MAILID)),
+RIGHT(MAILID,(LEN(MAILID)-CHARINDEX('@',MAILID))+2))
+FROM EMAILS
+
+--Convert the string 'sql server' to uppercase.
+DECLARE @S VARCHAR(10)='sql server';
+SELECT UPPER(@s) AS capitalized;
+
+--Write a query to convert all customer names in a 'Customers' table to uppercase.
+update customers
+set customername=upper(customername)
+
+-- Convert the string 'SQL SERVER' to lowercase.
+DECLARE @S VARCHAR(10)='SQL SERVER';
+SELECT lower(@s) AS capitalized;
+
+--From a 'Products' table, write a query to convert all product descriptions to lowercase.
+UPDATE PRODUCTS
+SET PRODDESC=LOWER(PRODDESC);
+
+--Remove trailing spaces from the string 'SQL Server    '.
+--Remove leading spaces from the string '   SQL Server'.
+
+DECLARE @S VARCHAR(50) = '          SQL SERVER       ';
+SELECT '[' + TRIM(@S) + ']' AS Trimmed;
+SELECT '[' + RTRIM(@S) + ']' AS RightTrimmed;
+SELECT '[' + LTRIM(@S) + ']' AS LeftTrimmed;
+
+-- Write a query to remove trailing spaces from all email addresses in an 'Employees' table.
+UPDATE EMPLOYEE
+SET EMAIL=RTRIM(EMAIL)
+
+-- From a 'Comments' table, write a query to remove leading spaces from all comment texts.
+UPDATE COMMENTS
+SET COMMENT=LTRIM(COMMENT)
+
+-- Display the current date in the format 'dd-MM-yyyy'.
+SELECT FORMAT(GETDATE(), 'dd-MM-yyyy') AS FormattedDate;
+
+-- From an 'Orders' table with an 'OrderTotal' column, display the total as a currency with 2 decimal places.
+SELECT FORMAT(OrderTotal, 'C2', 'en-US') AS Total
+FROM Orders;
+
+-- Separate the string 'apple,banana,cherry' into individual fruits.
+DECLARE @Fruits VARCHAR(100) = 'apple,banana,cherry';
+
+SELECT value AS Fruit
+FROM STRING_SPLIT(@Fruits, ',');
+
+-- From a 'Skills' table with a 'SkillList' column containing comma-separated skills, write a query to create a row for each individual skill.
+select * from skills
+cross apply string_split(skilllist,',');
+
+
+
+
+
 
 
 
