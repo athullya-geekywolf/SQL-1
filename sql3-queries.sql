@@ -24,6 +24,8 @@ SELECT RIGHT(@STR,4)
 AS LAST_FOUR;
 
 --From an 'Orders' table with an 'OrderID' column (format: ORD-YYYY-NNNN), write a query to extract just the numeric portion at the end.
+SELECT RIGHT(ORDERID,LEN(ORDERID)-CHARINDEX('-',ORDERID,CHARINDEX('-',ORDERID)+1)) FROM ORDERS;
+
 -- Write a query to find the length of the string 'SQL Server Functions'.
 DECLARE @STR VARCHAR(30)= 'SQL Server Functions';
 SELECT LEN(@STR) AS LENGTH ;
@@ -33,5 +35,28 @@ SELECT * FROM CUSTOMERS
 WHERE LEN(CUSTOMERNAME) >20;
 
 --Compare the results of character count and byte count for the string 'SQL Server' with a trailing space.
+DECLARE @STR VARCHAR(20)='SQL Server   ';
+SELECT LEN(@STR) AS CHARACTER_COUNT,
+DATALENGTH(@STR) AS BYTE_COUNT;
+
+'LEN returns the number of characters in the string, excluding trailing spaces.
+DATALENGTH returns the number of bytes used to store the string'
+
+-- Write a query to find the byte count of an empty string and explain the result
+DECLARE @STR VARCHAR(20)='';
+SELECT LEN(@STR) AS CHARACTER_COUNT,
+DATALENGTH(@STR) AS BYTE_COUNT;
+
+'DATALENGTH measures the amount of space used in bytes for the string, and since there are no characters, there are no bytes allocated.'
+
+-- Find the position of 'Server' in the string 'Microsoft SQL Server'.
+DECLARE @STR VARCHAR(30) ='Microsoft SQL Server';
+SELECT CHARINDEX('SERVER',@STR) AS POSITION;
+
+--From an 'Emails' table, write a query to extract the domain name from email addresses.
+
+
+
+
 
 
