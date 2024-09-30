@@ -87,6 +87,8 @@ FROM Addresses;
 SELECT REPLACE('database management', 'a', 'e') AS UpdatedString;
 
 -- From a 'Products' table, write a query to replace all spaces in product names with underscores.
+SELECT REPLACE(PRODSS, ' ', '_') AS UpdatedString FROM PRODUCTS;
+
 
 
 
