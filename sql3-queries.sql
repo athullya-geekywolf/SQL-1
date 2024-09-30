@@ -54,6 +54,42 @@ DECLARE @STR VARCHAR(30) ='Microsoft SQL Server';
 SELECT CHARINDEX('SERVER',@STR) AS POSITION;
 
 --From an 'Emails' table, write a query to extract the domain name from email addresses.
+SELECT RIGHT(MAILID,LEN(MAILID)-CHARINDEX('@',MAILID)) FROM EMAILS;
+
+-- Find the position of the first number in the string 'ABC123DEF456'.
+DECLARE @STR VARCHAR(20)='ABC123DEF456'
+SELECT PATINDEX('%[0-9]%',@STR) AS POSITION;
+
+-- Write a query to find all product names from a 'Products' table that contain a number.
+SELECT * FROM PRODUCTS;
+SELECT * FROM PRODUCTS 
+WHERE ProductName 
+LIKE '%[0-9]%'
+
+-- Join the strings 'SQL', 'Server', and '2022' with spaces between them.
+ SELECT CONCAT('SQL',' ','SERVER',' ','2022') AS JOINED_STRING;
+
+-- From 'Employees' table with 'FirstName' and 'LastName' columns, create a 'FullName' column.
+ALTER TABLE EMPLOYEE
+ADD FULLNAME VARCHAR(30);
+
+UPDATE EMPLOYEE
+SET FULLNAME=CONCAT(FIRSTNAME,' ',LASTNAME) 
+
+--  Join the array ('SQL', 'Server', '2022') with a hyphen as the separator.
+SELECT CONCAT_WS('-','SQL','SERVER','2022') AS JOINED_STRING;
+
+--  From an 'Addresses' table, combine 'Street', 'City', 'State', and 'ZIP' columns into a single address string.
+SELECT CONCAT__WS(',',Street, City, STATES, ZIP) AS FullAddress
+FROM Addresses;
+
+-- Change all occurrences of 'a' to 'e' in the string 'database management'.
+SELECT REPLACE('database management', 'a', 'e') AS UpdatedString;
+
+-- From a 'Products' table, write a query to replace all spaces in product names with underscores.
+
+
+
 
 
 
