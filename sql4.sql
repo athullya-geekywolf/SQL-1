@@ -33,11 +33,11 @@ WHERE R.PATIENTID= NULL
 
 -- 7. List all doctors who have appointments in the next week, along with the patients they're scheduled to see.
 
-SELECT D.DoctorID, D.DoctorName, P.PatientID, P.PatientName, A.AppointmentDate
-FROM Appointments A
-JOIN Doctors D ON A.DoctorID = D.DoctorID
-JOIN Patients P ON A.PatientID = P.PatientID
-WHERE A.AppointmentDate BETWEEN GETDATE() AND DATEADD(DAY,7,GETDATE());
+SELECT D.DoctorID,D.DoctorName,D.Specialty,P.PatientID,P.PatientName,A.AppointmentDate
+FROM Doctors D
+LEFT JOIN Appointments A ON D.DoctorID = A.DoctorID
+LEFT JOIN Patients P ON P.PatientID = A.PatientID
+WHERE DATEPART(WEEK,A.AppointmentDate) = DATEPART(WEEK,GETDATE()) +1;
 
 -- 8. Display all medications prescribed to patients over 60 years old, including medications not prescribed to this age group.
 SELECT M.MedicationID, M.MedicationName, M.DosageForm, P.PatientID, P.PatientName, P.DateOfBirth
@@ -55,5 +55,7 @@ WHERE YEAR(GETDATE())-1=YEAR(APPOINTMENTDATE)
 SELECT D.SPECIALTY, M.MEDICATIONNAME
 FROM DOCTORS D
 CROSS JOIN MEDICATIONS M;
+
+---------------------------------------------------------------------------------------------------------------------------------
 
 
