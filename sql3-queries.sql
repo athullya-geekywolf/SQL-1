@@ -191,6 +191,9 @@ SELECT AVG(DATEDIFF(DAY,ORDER_DATE,SHIP_DATE)) FROM ORDERS;
 SELECT MONTH('2023-09-15')
 
 --From a 'Sales' table, write a query to group total sales by the quarter of the sale date.
+ SELECT DATEPART(QUARTER,SALEDATE),COUNT(SALEID) FROM SALES
+GROUP BY DATEPART(QUARTER,SALEDATE)
+ 
 --Extract the year from the current date.
 SELECT YEAR('2023-09-15')
 
@@ -260,10 +263,21 @@ CREATE TABLE GlobalEvents (
     EventTime DATETIME
 );
 
+SELECT EventID, 
+       EventName, 
+       EventTime AT TIME ZONE 'Pacific Standard Time' AS EventTimeWithOffset
+FROM GlobalEvents;
+
 --Extract the month number from the date '2023-12-25'.
 SELECT MONTH('2023-12-25');
 
 --From a 'Sales' table, find the total sales for each month of the previous year.
+SELECT DATENAME(MONTH,SALEDATE), SUM(SALEAMT)
+FROM SALES
+WHERE YEAR(SaleDate) = YEAR(GETDATE()) - 1  
+GROUP BY MONTH(SALEDATE),DATENAME(MONTH,SALEDATE)
+ORDER BY MONTH(SALEDATE)
+ 
 --Extract the day of the month from '2023-03-15'.
 SELECT DAY('2023-03-15');
 
