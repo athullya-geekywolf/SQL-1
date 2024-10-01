@@ -43,7 +43,8 @@ WHERE DATEPART(WEEK,A.AppointmentDate) = DATEPART(WEEK,GETDATE()) +1;
 SELECT M.MedicationID, M.MedicationName, M.DosageForm, P.PatientID, P.PatientName, P.DateOfBirth
 FROM Medications M
 LEFT JOIN Prescriptions R ON M.MedicationID = R.MedicationID
-LEFT JOIN Patients P ON R.PatientID = P.PatientID AND DATEDIFF(YEAR, P.DateOfBirth, GETDATE()) > 60
+LEFT JOIN Patients P ON R.PatientID = P.PatientID 
+WHERE P.PatientID IS NULL OR DATEDIFF(YEAR, P.DateOfBirth, GETDATE()) > 60
 ORDER BY M.MedicationID;
 
 -- 9. Show all appointments from last year and any associated prescription information.
@@ -58,4 +59,61 @@ CROSS JOIN MEDICATIONS M;
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
+-- 1. List all products with their category names, including products without a category.
+SELECT P.PRODUCTNAME, C.CATEGORYNAME
+FROM PROD P
+LEFT JOIN CATEGORIES C ON P.CATEGORYID=C.CATEGORYID;
 
+-- 2. Display all customers and their order history, including customers who haven't placed any orders.
+SELECT C.CUSTOMERNAME, O.ORDERID
+FROM CUSTOMER C
+LEFT JOIN ORD O ON C.CUSTOMERID=O.CUSTOMERID
+
+-- 3. Show all categories and the products in each category, including categories without any products.
+SELECT C.CATEGORYNAME,P.PRODUCTNAME
+FROM CATEGORIES C
+LEFT JOIN PROD P ON C.CATEGORYID=P.PRODUCTID;
+
+-- 4. List all possible customer-product combinations, regardless of whether a purchase has occurred.
+SELECT C.CUSTOMERNAME,P.PRODUCTNAME
+FROM CUSTOMER C
+CROSS JOIN PROD P
+
+-- 5. Display all orders with customer and product information, including orders where either the customer or product information is missing.
+SELECT O.ORDERID,C.CUSTOMERNAME,P.PRODUCTNAME FROM ORD O
+LEFT JOIN ORDERDETAILS OD ON O.ORDERID=OD.ORDERID 
+LEFT JOIN CUSTOMER C ON C.CUSTOMERID=O.CUSTOMERID
+LEFT JOIN PROD P ON P.PRODUCTID=OD.PRODUCTID;
+
+-- 6. Show all products that have never been ordered, along with their category information.
+SELECT P.PRODUCTNAME,C.CATEGORYNAME FROM PROD P
+LEFT JOIN CATEGORIES C ON P.CategoryID=C.CategoryID
+WHERE P.PRODUCTID NOT IN (SELECT PRODUCTID FROM ORDERDETAILS);
+
+-- 7. List all customers who have placed orders in the last week, along with the products they've purchased.
+
+SELECT C.CustomerID,C.CustomerName,P.ProductName
+FROM Customer C
+LEFT JOIN Ord O ON C.CustomerID = O.CustomerID
+LEFT JOIN OrderDetails OD ON O.OrderID = OD.OrderID
+LEFT JOIN Prod P ON P.ProductID = OD.ProductID
+WHERE DATEPART(WEEK, O.OrderDate) = DATEPART(WEEK, GETDATE()) - 1;
+    
+
+-- 8. Display all categories with products priced over $100, including categories without such products.
+SELECT C.CATEGORYNAME,P.PRODUCTNAME ,P.PRICE
+FROM CATEGORIES C
+LEFT JOIN PROD P ON P.CATEGORYID=C.CATEGORYID
+WHERE P.PRODUCTNAME IS NULL OR P.PRICE>100
+
+-- 9. Show all orders placed before 2023 and any associated product information.
+SELECT O.ORDERID,O.ORDERDATE FROM ORD O
+JOIN ORDERDETAILS OD ON OD.ORDERID=O.ORDERID
+JOIN PROD P ON P.PRODUCTID=OD.PRODUCTID
+WHERE YEAR(O.ORDERDATE) < 2023;
+
+-- 10. List all possible category-customer combinations, regardless of whether the customer has purchased a product from that category.
+
+SELECT C.CATEGORYNAME,P.CUSTOMERNAME 
+FROM CATEGORIES C
+CROSS JOIN CUSTOMER P
