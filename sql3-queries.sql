@@ -157,6 +157,7 @@ FROM STRING_SPLIT(@Fruits, ',');
 select * from skills
 cross apply string_split(skilllist,',');
 
+----------------------------------------------------------------------------------------------------------------------------------------------
 -- Write a query to display the current date and time.
 SELECT GETDATE() AS CurrentDateTime;
 
@@ -165,6 +166,133 @@ SELECT GETDATE() AS CurrentDateTime;
 SELECT GETUTCDATE() AS CurrentUTCDateTime;
 
 -- Write a query to show the time difference between local time and UTC time.
+SELECT GETDATE(),GETUTCDATE(),DATEDIFF(MINUTE,GETDATE(),GETUTCDATE());
+
+-- Convert the current date and time to 'Pacific Standard Time'.
+SELECT GETDATE(), GETDATE() AT TIME ZONE 'PACIFIC STANDARD TIME' AS PST;
+
+-- From a 'Flights' table with a 'DepartureTime' column in UTC, convert all departure times to 'Eastern Standard Time'.
+SELECT DEPARTURETIME, DEPARTURETIME AT TIME ZONE 'Eastern Standard Time' FROM FLIGHT
+
+--Add 3 months to the current date
+SELECT GETDATE(),DATEADD( MONTH,3,GETDATE())
+
+-- From an 'Employees' table, write a query to calculate each employee's retirement date (65 years from their 'DateOfBirth').
+SELECT DOB, DATEADD(YEAR,65,DOB) AS RETIREMENT_DATE 
+FROM EMPLOYEES
+
+-- Calculate the number of days between '2023-01-01' and '2023-12-31'.
+SELECT DATEDIFF(DAY, '2023-01-01', '2023-12-31') AS NumberOfDays;
+
+-- From an 'Orders' table, find the average number of days between order date and ship date.
+SELECT AVG(DATEDIFF(DAY,ORDER_DATE,SHIP_DATE)) FROM ORDERS;
+
+-- Extract the month number from the date '2023-09-15'.
+SELECT MONTH('2023-09-15')
+
+--From a 'Sales' table, write a query to group total sales by the quarter of the sale date.
+--Extract the year from the current date.
+SELECT YEAR('2023-09-15')
+
+--From an 'Employees' table, find all employees hired in the year 2022.
+SELECT * FROM EMPLOYEES
+WHERE YEAR(HIREDATE)=2022;
+
+-- Check if '2023-02-30' is a valid date.
+SELECT 
+    CASE 
+        WHEN TRY_CAST('2023-02-30' AS DATE) IS NULL THEN 'Invalid Date'
+        ELSE 'Valid Date'
+    END AS DateValidity;
+
+SELECT 
+    CASE 
+        WHEN TRY_CONVERT(DATE,'2023-02-30' ) IS NULL THEN 'Invalid Date'
+        ELSE 'Valid Date'
+    END AS DateValidity;
+
+-- Write a query to find all rows in a 'UserInputs' table where the 'EnteredDate' column contains invalid dates.
+SELECT *
+FROM ORDERS
+WHERE TRY_CONVERT(DATE, ORDER_DATE) IS NULL;
+
+--Find the last day of the current month.
+SELECT EOMONTH(GETDATE()) AS LastDayOfMonth;
+
+-- From a 'Subscriptions' table, write a query to extend all subscription end dates to the end of their respective months.
+UPDATE ORDERS 
+SET ORDER_DATE=EOMONTH(ORDER_DATE)
+
+--Display the current date and time.
+SELECT GETDATE() AS CurrentDateTime;
+
+--Compare the results of two different methods to get the current timestamp - are they always the same?
+SELECT 
+    GETDATE() AS CurrentDateTime,            -- PRECISION UPTO 3 DECIMAL PLACES
+    SYSDATETIME() AS CurrentSysDateTime;     -- PRECISION UPTO 7 DECIMAL PLACES
+
+-- Get the current date and time with higher precision than standard methods.
+SELECT SYSDATETIME() AS CurrentDateTimeWithPrecision;
+
+--Write a query to insert the current high-precision timestamp into a 'Logs' table.
+CREATE TABLE Logs (
+    LogID INT IDENTITY PRIMARY KEY,
+    LogMessage NVARCHAR(255),
+    Timestamp DATETIME2
+);
+
+INSERT INTO Logs (LogMessage, Timestamp)
+VALUES ('Log entry created', SYSDATETIME());
+
+--Display the current UTC date and time with high precision.
+SELECT SYSUTCDATETIME() AS CurrentUTCDateTimeWithPrecision;
+
+-- Calculate the difference in microseconds between the current local time and UTC time.
+SELECT DATEDIFF(MICROSECOND,SYSDATETIME(),SYSUTCDATETIME())
+
+--Get the current date, time, and time zone offset.
+SELECT SYSDATETIMEOFFSET() AS CurrentDateTimeWithOffset;
+
+--From a 'GlobalEvents' table, convert all event times to include time zone offset information.
+CREATE TABLE GlobalEvents (
+    EventID INT PRIMARY KEY,
+    EventName VARCHAR(100),
+    EventTime DATETIME
+);
+
+--Extract the month number from the date '2023-12-25'.
+SELECT MONTH('2023-12-25');
+
+--From a 'Sales' table, find the total sales for each month of the previous year.
+--Extract the day of the month from '2023-03-15'.
+SELECT DAY('2023-03-15');
+
+--Write a query to find all orders from an 'Orders' table that were placed on the 15th day of any month.
+SELECT * FROM ORDERS
+WHERE DAY(ORDER_DATE)=15
+
+--Get the name of the month for the date '2023-09-01'
+SELECT DATENAME(MONTH,'2023-09-01')
+
+--From an 'Events' table, write a query to display the day of the week (in words) for each event date.
+SELECT EventId,DATENAME(WEEKDAY,EventDate) AS DayOfWeek,EventName
+FROM Events;
+
+--Create a date for Christmas Day 2023.
+SELECT CAST('2023-12-25' AS DATE) AS ChristmasDay2023;
+
+--Write a query to convert separate year, month, and day columns from a 'Dates' table into a single DATE column.
+UPDATE DATES 
+SET COMBINEDDATE=DATEFROMPARTS(YEAR,MONTH,DAY)
+
+
+
+
+
+
+
+
+
 
 
 
