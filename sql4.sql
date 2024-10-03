@@ -117,3 +117,62 @@ WHERE YEAR(O.ORDERDATE) < 2023;
 SELECT C.CATEGORYNAME,P.CUSTOMERNAME 
 FROM CATEGORIES C
 CROSS JOIN CUSTOMER P
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+-- 1. List all books along with their authors, including books without assigned authors.
+SELECT B.TITLE,A.AUTHORNAME
+FROM BOOKS B
+LEFT JOIN AUTHORS A ON B.AUTHORID=A.AUTHORID;
+
+-- 2. Display all patrons and their loan history, including patrons who have never borrowed a book.
+SELECT P.PATRONNAME,L.LOANDATE,L.RETURNDATE
+FROM PATRONS P
+LEFT JOIN LOANS L ON P.PATRONID=L.PATRONID;
+
+-- 3. Show all authors and the books they've written, including authors who haven't written any books in our collection.
+SELECT A.AUTHORNAME, B.TITLE 
+FROM AUTHORS A 
+LEFT JOIN BOOKS B ON A.AUTHORID=B.AUTHORID;
+
+-- 4. List all possible book-patron combinations, regardless of whether a loan has occurred.
+SELECT P.PATRONNAME, B.TITLE
+FROM PATRONS P
+CROSS JOIN BOOKS B;
+
+-- 5. Display all loans with book and patron information, including loans where either the book or patron information is missing.
+SELECT L.LOANDATE,L.RETURNDATE, B.TITLE,B.PUBLICATIONYEAR,P.PATRONNAME
+FROM LOANS L
+LEFT JOIN BOOKS B ON B.BOOKID=L.BOOKID
+LEFT JOIN PATRONS P ON P.PATRONID=L.PATRONID;
+
+-- 6. Show all books that have never been loaned, along with their author information.
+SELECT B.TITLE,A.AUTHORNAME
+FROM BOOKS B
+LEFT JOIN LOANS L ON B.BOOKID= L.BOOKID
+JOIN AUTHORS A ON A.AUTHORID=B.AUTHORID
+WHERE L.LOANID IS NULL
+
+-- 7. List all patrons who have borrowed books in the last month, along with the books they've borrowed.
+SELECT P.PATRONNAME,B.TITLE
+FROM PATRONS P
+JOIN LOANS L ON L.PATRONID=P.PATRONID
+JOIN BOOKS B ON B.BOOKID=L.BOOKID
+WHERE MONTH(LOANDATE)=MONTH(GETDATE())-1 AND YEAR(LOANDATE)=YEAR(GETDATE());
+
+-- 8. Display all authors born after 1970 and their books, including those without any books in our collection.
+SELECT A.AUTHORNAME,B.TITLE
+FROM AUTHORS A
+LEFT JOIN BOOKS B ON B.AUTHORID=A.AUTHORID
+WHERE A.BIRTHYEAR>1970
+
+-- 9. Show all books published before 2000 and any associated loan information.
+SELECT B.TITLE,B.PUBLICATIONYEAR,L.LOANDATE,L.RETURNDATE
+FROM BOOKS B
+LEFT JOIN LOANS L ON L.BOOKID=B.BOOKID
+WHERE PUBLICATIONYEAR < 2000
+
+-- 10. List all possible author-patron combinations, regardless of whether the patron has borrowed a book by that author.
+SELECT P.PATRONNAME,A.AUTHORNAME
+FROM PATRONS P
+CROSS JOIN AUTHORS A;
