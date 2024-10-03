@@ -58,7 +58,7 @@ WHERE FirstName NOT LIKE 'JOHN';
 SELECT * 
 FROM EMPLOYEES
 WHERE DEPARTMENT='MARKETING' 
-AND SALARY < 60000
+AND SALARY <= 60000
 AND HIREDATE > '2019-06-30';
 
 --Find employees whose first name contains the letters 'an' anywhere and ends with 'e'.
