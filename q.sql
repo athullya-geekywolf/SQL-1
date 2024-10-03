@@ -94,9 +94,10 @@ CREATE TABLE Sales (
 );
 
 --Calculate the total sales amount for each product. Display the ProductID and total sales amount.
-SELECT S.PRODUCTID, SUM(S.QUANTITY*S.UNITPRICE) AS SALES_AMOUNT
-FROM SALES S
-GROUP BY S.PRODUCTID;
+SELECT P.PRODUCTID, SUM(S.QUANTITY*S.UNITPRICE) AS SALES_AMOUNT
+FROM PRODUCTS P
+LEFT JOIN SALES S ON S.PRODUCTID=P.PRODUCTID
+GROUP BY P.PRODUCTID;
 
 --Find the average quantity sold per sale for each product category.
 SELECT P.CATEGORY, AVG(S.QUANTITY) AS AVG_SOLD_QUANTITY
