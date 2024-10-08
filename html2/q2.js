@@ -36,7 +36,12 @@ const movies=[
 //1. List the movie name along with the actor name of those movies released in the year 2022
 console.log(movies
     .filter(x=> new Date(x.ReleaseDate).getFullYear() === 2022)
-    .map(x=>`Movie : ${x.MovieName} , Actor : ${x.ActorName}`));
+    .map(x=>`Movie : ${x.MovieName} , Actor : ${x.ActorName}`));    // return as string
+
+console.log(movies
+    .filter(x=> new Date(x.ReleaseDate).getFullYear() === 2022)
+    .map(x=>({MovieName:x.MovieName ,ActorName:x.ActorName})));       //return as object
+
 
 //2. List the movie names released in the year 2023 where the actor is William Davis.
 console.log(movies
