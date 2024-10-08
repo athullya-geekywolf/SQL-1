@@ -46,20 +46,20 @@ console.log(movies
 //2. List the movie names released in the year 2023 where the actor is William Davis.
 console.log(movies
     .filter(x=> x.ActorName=='William Davis' && new Date(x.ReleaseDate).getFullYear() === 2023)
-    .map(x=>`Movie : ${x.MovieName} , Actor : ${x.ActorName}`));
+    .map(x=>({MovieName:x.MovieName ,ActorName:x.ActorName})));
 
 //3. Retrieve the Actor name and release date of the movie “The Last Stand”
 console.log(movies
-    .filter(x=>x.MovieName== 'The Last Stand')
-    .map(x=>`Actor : ${x.ActorName} , Release : ${x.ReleaseDate}`));
+    .filter(x=>x.MovieName=== 'The Last Stand')
+    .map(x=>({ActorName:x.ActorName,ReleaseDate:x.Releasedate})));
 
 //4. Check whether there is any movie in the list with actor name “John Doe”
 console.log(movies
-    .some(x=>x.ActorName=='John Doe'));
+    .some(x=>x.ActorName==='John Doe'));
 
 //5. Display the count of movies where the actor name is "Sophia Williams"
 console.log(movies
-    .filter(x=>x.ActorName=='Sophia Williams').length);
+    .filter(x=>x.ActorName==='Sophia Williams').length);
 
 // 6. Insert an element
 // {
@@ -82,7 +82,8 @@ movies.forEach(x => {
 });
 
 //7. Check whether there exists any duplicate movie names present in the array
-const titles=movies.filter(x=>x.MovieName)
+const titles=movies.map(x=>x.MovieName)
+console.log(titles);
 const dup=new Set(titles);
 console.log(dup.size)
 console.log(movies.length)
@@ -98,7 +99,7 @@ console.log(newarray);
 
 //by slicing and starting from the given movie
 const startIndex = movies.findIndex(movie => movie.MovieName === "City of Shadows");
-const newMoviesArray = startIndex != -1 ? movies.slice(startIndex) : [];
+const newMoviesArray = startIndex !== -1 ? movies.slice(startIndex) : [];
 console.log(newMoviesArray);
 
 //9. List the distinct actor names in array
@@ -140,22 +141,18 @@ console.log(movies);
 console.log(movies.every(x=>x.ReleaseDate > '2021-12-31'));
 
 //14. Update movie named  "City of Shadows" ‘s release date as  "2023-03-13"
-for (let i = 0; i < movies.length; i++) {
-    if (movies[i].MovieName === "City of Shadows") {
-      movies[i].ReleaseDate = "2023-03-13";
-      break;
-    }
+movies.forEach(movie=>{
+  if(movie.MovieName === 'City of Shadows')
+  {
+    movie.ReleaseDate='2023-03-13';
   }
+}
+);
   
-  console.log(movies);
+console.log(movies);
   
 //15. Create a new array of movie names whose movie name length is greater than 10.
-const nmovie=[];
 console.log(movies.length)
-for (let i = 0; i < movies.length; i++) {
-    if (movies[i].MovieName.length >10) {
-        nmovie.push(movies[i].MovieName)
-    }
-  }
+const movielists=movies.filter(x=>x.MovieName.length>15);
 
-console.log(nmovie);
+console.log(movielists);
