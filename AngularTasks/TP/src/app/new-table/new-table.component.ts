@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './new-table.component.scss'
 })
 export class NewTableComponent {
-  state = [
+  states = [
     { state: 'Andhra', cm: 'Jagan', capital: 'Amaravati' },
     { state: 'Telengana', cm: 'KCR', capital: 'Hyderabad' },
     { state: 'Karanataka', cm: 'Bommai', capital: 'Bangalore' },
