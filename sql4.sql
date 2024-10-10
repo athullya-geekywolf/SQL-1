@@ -29,7 +29,7 @@ SELECT *
 FROM PATIENTS P
 LEFT JOIN PRESCRIPTIONS R ON P.PATIENTID= R.PATIENTID
 LEFT JOIN APPOINTMENTS A ON P.PATIENTID=A.PATIENTID
-WHERE R.PATIENTID= NULL
+WHERE R.PATIENTID IS NULL
 
 -- 7. List all doctors who have appointments in the next week, along with the patients they're scheduled to see.
 
