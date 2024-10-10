@@ -216,15 +216,15 @@ SELECT
 
 -- Write a query to find all rows in a 'UserInputs' table where the 'EnteredDate' column contains invalid dates.
 SELECT *
-FROM ORDERS
-WHERE TRY_CONVERT(DATE, ORDER_DATE) IS NULL;
+FROM USERINPUTS
+WHERE TRY_CONVERT(DATE, ENTEREDDATE) IS NULL;
 
 --Find the last day of the current month.
 SELECT EOMONTH(GETDATE()) AS LastDayOfMonth;
 
 -- From a 'Subscriptions' table, write a query to extend all subscription end dates to the end of their respective months.
-UPDATE ORDERS 
-SET ORDER_DATE=EOMONTH(ORDER_DATE)
+UPDATE SUBSCRIPTIONS
+SET SUBSCRIPTION_DATE=EOMONTH(ORDER_DATE)
 
 --Display the current date and time.
 SELECT GETDATE() AS CurrentDateTime;
