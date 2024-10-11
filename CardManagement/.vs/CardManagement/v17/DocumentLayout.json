@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B2182C23-5B69-423D-9CB6-B5DFD44F1D5B}|CardManagement.csproj|c:\\users\\athullya.r\\source\\console2\\card\\intern-assignments\\cardmanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2182C23-5B69-423D-9CB6-B5DFD44F1D5B}|CardManagement.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{796B21AB-E49E-4324-A8DA-56F7DA35B0F2}|..\\CardManagement.Model\\CardManagement.Model.csproj|c:\\users\\athullya.r\\source\\console2\\card\\intern-assignments\\cardmanagement.model\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{796B21AB-E49E-4324-A8DA-56F7DA35B0F2}|..\\CardManagement.Model\\CardManagement.Model.csproj|c:\\users\\athullya.r\\source\\console2\\card\\intern-assignments\\cardmanagement.model\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Migrations\\20241011093625_card5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{796B21AB-E49E-4324-A8DA-56F7DA35B0F2}|..\\CardManagement.Model\\CardManagement.Model.csproj|c:\\users\\athullya.r\\source\\console2\\card\\intern-assignments\\cardmanagement.model\\cardmanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Migrations\\20241011093529_card4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{796B21AB-E49E-4324-A8DA-56F7DA35B0F2}|..\\CardManagement.Model\\CardManagement.Model.csproj|c:\\users\\athullya.r\\source\\console2\\card\\intern-assignments\\cardmanagement.model\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20241011093625_card5.cs",
+              "DocumentMoniker": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Migrations\\20241011093625_card5.cs",
+              "RelativeDocumentMoniker": "..\\CardManagement.Model\\Migrations\\20241011093625_card5.cs",
+              "ToolTip": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Migrations\\20241011093625_card5.cs",
+              "RelativeToolTip": "..\\CardManagement.Model\\Migrations\\20241011093625_card5.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T09:36:25.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20241011093529_card4.cs",
+              "DocumentMoniker": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Migrations\\20241011093529_card4.cs",
+              "RelativeDocumentMoniker": "..\\CardManagement.Model\\Migrations\\20241011093529_card4.cs",
+              "ToolTip": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Migrations\\20241011093529_card4.cs",
+              "RelativeToolTip": "..\\CardManagement.Model\\Migrations\\20241011093529_card4.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T09:35:29.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CardManagementContext.cs",
+              "DocumentMoniker": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\CardManagementContext.cs",
+              "RelativeDocumentMoniker": "..\\CardManagement.Model\\CardManagementContext.cs",
+              "ToolTip": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\CardManagementContext.cs",
+              "RelativeToolTip": "..\\CardManagement.Model\\CardManagementContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T09:36:21.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T09:23:53.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "..\\CardManagement.Model\\Models\\Transaction.cs",
+              "ToolTip": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Models\\Transaction.cs",
+              "RelativeToolTip": "..\\CardManagement.Model\\Models\\Transaction.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAwwBQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T09:26:19.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "..\\CardManagement.Model\\Models\\Customer.cs",
+              "ToolTip": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Models\\Customer.cs",
+              "RelativeToolTip": "..\\CardManagement.Model\\Models\\Customer.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T09:25:57.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "..\\CardManagement.Model\\Models\\Account.cs",
+              "ToolTip": "C:\\Users\\athullya.r\\source\\console2\\card\\INTERN-ASSIGNMENTS\\CardManagement.Model\\Models\\Account.cs",
+              "RelativeToolTip": "..\\CardManagement.Model\\Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T09:25:45.213Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

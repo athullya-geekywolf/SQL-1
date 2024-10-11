@@ -1,0 +1,15 @@
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\bin\Debug\net8.0\CardManagement.Model.deps.json
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\bin\Debug\net8.0\CardManagement.Model.dll
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\bin\Debug\net8.0\CardManagement.Model.pdb
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.AssemblyInfoInputs.cache
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.AssemblyInfo.cs
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.csproj.CoreCompileInputs.cache
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.sourcelink.json
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.dll
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\refint\CardManagement.Model.dll
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.pdb
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\ref\CardManagement.Model.dll
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\bin\Debug\net8.0\CardManagement.Model.runtimeconfig.json
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.csproj.AssemblyReference.cache
+C:\Users\athullya.r\source\console2\card\INTERN-ASSIGNMENTS\CardManagement.Model\obj\Debug\net8.0\CardManagement.Model.genruntimeconfig.cache
