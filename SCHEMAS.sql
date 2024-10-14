@@ -74,11 +74,11 @@ CREATE TABLE Shows (
 
 CREATE TABLE Seats (
     SeatId INT IDENTITY(1,1) PRIMARY KEY,
-    ShowId INT,
+    ScreenId INT,
     SeatNumber VARCHAR(10),
     SeatType VARCHAR(20),
     Price DECIMAL(10, 2),
-    FOREIGN KEY (ShowId) REFERENCES Shows(ShowId)
+    FOREIGN KEY (ScreenId) REFERENCES Screens(ScreenId)
 );
 
 
@@ -112,7 +112,7 @@ CREATE TABLE BookedSeats (
 
 ------------------------------------------------------------------------------------------------------------
 
-"SCHEMA FOR AMAZON"
+"Scheema For Amazon"
 
   CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
@@ -254,7 +254,7 @@ CREATE TABLE Reviews (
 
 ------------------------------------------------------------------------------------------------------------
 
-"SCHEMA FOR UBER"
+"Schema For Uber"
   
 CREATE TABLE Users (
     UserID INT IDENTITY(1,1) PRIMARY KEY ,
