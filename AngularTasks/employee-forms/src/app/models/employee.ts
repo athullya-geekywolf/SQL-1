@@ -1,12 +1,14 @@
-export interface Employee{
-    firstname:string|null;
-    lastname?:string|null;
-    email:string|null;
-    pNumber:string |null;
-    address:{
-        address1?:string|null,
-        address2?:string|null,
-        city?:string|null
-    };
+import { FormControl, FormGroup } from "@angular/forms";
+
+export interface IEmployee{
+    firstname:FormControl<string|null>;
+    lastname:FormControl<string|null>;
+    email:FormControl<string|null>;
+    pNumber:FormControl<number|null>;
+    address:FormGroup<{
+        address1:FormControl<string|null>;
+        address2:FormControl<string|null>;
+        city:FormControl<string|null>;
+    }>
 
 }
