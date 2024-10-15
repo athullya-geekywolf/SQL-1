@@ -33,7 +33,7 @@ form {
     }
 
     input {
-      width: 100%;
+      width: 95%;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -83,4 +83,18 @@ form {
     text-align: center;
     margin: 5px 0;
   }
+}
+
+.drop-down{
+      
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+        box-shadow: 0 0 5px rgba($primary-color, 0.5);
+}
 }

@@ -22,8 +22,15 @@
             <input type="text" formControlName="pNumber">
         </div>
         
+        <div>
+            <label for="project">Project Scheduled : </label>
+            <select class="drop-down" formControlName="project">
+                <option >Choose the project assigned</option>
+                <option *ngFor="let p of projects">{{p.name | active: p.isActive}}</option>
+            </select>
+        </div>
         
-        <label>Employee Address : </label>
+        <label>Employee Address  </label>
         <div formGroupName="address">
         <div>
             <label for="address1"> Address 1 : </label>
@@ -39,6 +46,8 @@
             <label for="address1"> City : </label>
             <input type="text" formControlName="city">
         </div>
+
+        
     </div>
        
         <p>Complete the form to enable button.</p>
@@ -47,9 +56,10 @@
 
 <div *ngIf="data" class="display-details">
     <h2>Employee Details</h2>
-    <p>Name: {{ data.firstname }} {{ data.lastname }}</p>
+    <p>Name: {{ data.firstname | uppercase }} {{ data.lastname |lowercase }}</p>
     <p>Email: {{ data.email }}</p>
     <p>Phone Number: {{ data.pNumber }}</p>
+    <p>Project Assigned: {{data.project}}</p>
     <p>Address Line 1: {{ data.address.address1 }}</p>
     <p>Address Line 2: {{ data.address.address2 }}</p>
     <p>City: {{ data.address.city }}</p>

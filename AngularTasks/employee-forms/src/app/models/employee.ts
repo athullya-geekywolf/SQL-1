@@ -5,6 +5,7 @@ export interface IEmployee{
     lastname:FormControl<string|null>;
     email:FormControl<string|null>;
     pNumber:FormControl<number|null>;
+    project:FormControl<string|null>;
     address:FormGroup<{
         address1:FormControl<string|null>;
         address2:FormControl<string|null>;
