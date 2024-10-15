@@ -45,7 +45,7 @@
         <button type="submit" [disabled]="!employeeForm.valid">Submit</button>
 </form>
 
-<div *ngIf="data">
+<div *ngIf="data" class="display-details">
     <h2>Employee Details</h2>
     <p>Name: {{ data.firstname }} {{ data.lastname }}</p>
     <p>Email: {{ data.email }}</p>
