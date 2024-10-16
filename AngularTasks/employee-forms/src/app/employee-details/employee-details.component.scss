@@ -98,3 +98,7 @@ form {
         box-shadow: 0 0 5px rgba($primary-color, 0.5);
 }
 }
+
+.ng-select select-dropdown > div {
+  z-index: 2;
+}

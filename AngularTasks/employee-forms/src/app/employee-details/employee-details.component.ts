@@ -3,12 +3,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { IEmployee } from '../models/employee';
 import { ActivePipe } from "../pipe/active.pipe";
+import { NgSelectModule } from '@ng-select/ng-select';
+import { IProjects } from '../models/projectlist';
 
 
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ActivePipe],
+  imports: [ReactiveFormsModule, CommonModule, ActivePipe,NgSelectModule],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.scss'
 })
@@ -17,17 +19,17 @@ export class EmployeeDetailsComponent implements OnInit {
 
   employeeForm:FormGroup<IEmployee>;
 
-  projects= [
-    { "name": "Hilite", "isActive": true },
-    { "name": "Lulu", "isActive": true },
-    { "name": "Cordova School", "isActive": true },
-    { "name": "Azure Heights Apartments", "isActive": true },
-    { "name": "Greenfield Mall", "isActive": true },
-    { "name": "Pinnacle Corporate Towers", "isActive": true },
-    { "name": "Sunshine Valley Resort", "isActive": true },
-    { "name": "Everest Office Park", "isActive": false },
-    { "name": "Maplewood Villas", "isActive": false },
-    { "name": "Sterling Shopping Complex", "isActive": false }
+  projects: IProjects[]=[
+    { name: "Hilite", isActive: true },
+    { name: "Cordova School", isActive: true },
+    { name: "Lulu", isActive: true },
+    { name: "Azure Heights Apartments", isActive: true },
+    { name: "Greenfield Mall", isActive: true },
+    { name: "Pinnacle Corporate Towers", isActive: true },
+    { name: "Sunshine Valley Resort", isActive: true },
+    { name: "Everest Office Park", isActive: false },
+    { name: "Maplewood Villas", isActive: false },
+    { name: "Sterling Shopping Complex", isActive: false }
   ]
   
   

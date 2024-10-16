@@ -41,10 +41,19 @@
         
         <div>
             <label for="project">Project Scheduled : </label>
-            <select class="drop-down" formControlName="project">
+            <ng-select 
+                [items]="projects|active:true"
+                formControlName="project" 
+                [virtualScroll]="true"
+                bindLabel="name"
+                placeholder="select project">
+            </ng-select>
+            <!-- <select class="drop-down" formControlName="project">
                 <option >Choose the project assigned</option>
-                <option *ngFor="let p of projects|active:true">{{p.name}}</option>
-            </select>
+                <option *ngFor="let p of projects|active:true">
+                    {{p.name}}
+                </option>
+            </select> -->
         </div>
         
         <label>Employee Address  </label>
