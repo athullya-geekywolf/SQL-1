@@ -5,7 +5,7 @@
         <!-- <span ng-show="employeeForm.name.$touched && employeeForm.name.$invalid">The name is required.</span> -->
         <div>
             <label for="name">Employee First Name : </label>
-            <input type="text" formControlName="firstname">
+            <input type="text" formControlName="firstname" >
             <div *ngIf="employeeForm.controls.firstname.touched && employeeForm.controls.firstname.invalid" style="color:red">
                 <div *ngIf="employeeForm.controls.firstname.hasError('required')">Name is required</div>
                 </div>
@@ -44,7 +44,6 @@
             <ng-select 
                 [items]="projects|active:true"
                 formControlName="project" 
-                [virtualScroll]="true"
                 bindLabel="name"
                 placeholder="select project">
             </ng-select>
@@ -82,10 +81,11 @@
 
 <div *ngIf="data" class="display-details">
     <h2>Employee Details</h2>
-    <p>Name: {{ data.firstname | uppercase }} {{ data.lastname |lowercase }}</p>
-    <p>Email: {{ data.email }}</p>
+    <p appColorChange>Name: {{ data.firstname | uppercase }} {{ data.lastname |lowercase }}</p>
+    <!-- <p *ngIf="data.email.includes('@gmail.com')">Email: {{ data.email }}</p> -->
+    <p *appDisplayEmail="data.email">Email: {{ data.email }}</p>
     <p>Phone Number: {{ data.pNumber }}</p>
-    <p>Project Assigned: {{data.project}}</p>
+    <p>Project Assigned: {{data.project.name}}</p>
     <p>Address Line 1: {{ data.address.address1 }}</p>
     <p>Address Line 2: {{ data.address.address2 }}</p>
     <p>City: {{ data.address.city }}</p>

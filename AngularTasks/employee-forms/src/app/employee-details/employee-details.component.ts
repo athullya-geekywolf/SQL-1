@@ -5,12 +5,14 @@ import { IEmployee } from '../models/employee';
 import { ActivePipe } from "../pipe/active.pipe";
 import { NgSelectModule } from '@ng-select/ng-select';
 import { IProjects } from '../models/projectlist';
+import { ColorChangeDirective } from '../directive/color-change.directive';
+import { DisplayEmailDirective } from '../directive/display-email.directive';
 
 
 @Component({
   selector: 'app-employee-details',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ActivePipe,NgSelectModule],
+  imports: [ReactiveFormsModule, CommonModule, ActivePipe,NgSelectModule,ColorChangeDirective,DisplayEmailDirective],
   templateUrl: './employee-details.component.html',
   styleUrl: './employee-details.component.scss'
 })
