@@ -37,15 +37,25 @@ CREATE TABLE Customizations (
 );
 
 
+CREATE TABLE DeliveryDrivers (
+    DriverID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    PhoneNumber VARCHAR(15),
+    VehicleDetails VARCHAR(100),
+    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE Orders (
     OrderID INT PRIMARY KEY IDENTITY(1,1),
     CustomerId INT,
     CustomizationID INT,
+    DriverId INT,
     OrderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     Status VARCHAR(20), 
     TotalAmount DECIMAL(10, 2),
     FOREIGN KEY (CustomerId) REFERENCES Customers(CustomerId),
     FOREIGN KEY (CustomizationID) REFERENCES Customizations(CustomizationID),
+    FOREIGN KEY (DriverId) REFERENCES DeliveryDrivers(DriverId),
     CHECK (Status IN ('Pending', 'Delivered', 'Cancelled')) 
 );
 
@@ -80,13 +90,6 @@ CREATE TABLE Promotions (
     FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID)
 );
 
-CREATE TABLE DeliveryDrivers (
-    DriverID INT PRIMARY KEY,
-    Name VARCHAR(100),
-    PhoneNumber VARCHAR(15),
-    VehicleDetails VARCHAR(100),
-    CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
-);
 
 CREATE TABLE LoyaltyPrograms (
     ProgramID INT PRIMARY KEY,
