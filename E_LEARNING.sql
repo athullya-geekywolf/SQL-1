@@ -6,7 +6,7 @@ CREATE TABLE Students (
     LastName VARCHAR(50),
     Email VARCHAR(100) UNIQUE NOT NULL,
     RegistrationDate DATE,
-	CONSTRAINT PkStudent PRIMARY KEY(StudentId),
+    CONSTRAINT PkStudent PRIMARY KEY(StudentId),
 );
 
 CREATE TABLE Instructors (
@@ -14,7 +14,7 @@ CREATE TABLE Instructors (
     FirstName VARCHAR(50) NOT NULL,
     LastName VARCHAR(50) ,
     Email VARCHAR(100) UNIQUE NOT NULL,
-	  PhoneNumber VARCHAR(12),
+    PhoneNumber VARCHAR(12),
     CONSTRAINT PkInstructor PRIMARY KEY(InstructorId)
 );
 
@@ -23,11 +23,11 @@ CREATE TABLE Courses (
     Title VARCHAR(100) NOT NULL,
     InstructorId INT,
     CreationDate DATE ,
-	  LastUpdatedDate DATE,
+    LastUpdatedDate DATE,
     Duration TIME,
     Price Decimal,
     FOREIGN KEY (InstructorId) REFERENCES Instructors(InstructorId),
-	  CONSTRAINT PkCourse PRIMARY KEY(CourseId)
+    CONSTRAINT PkCourse PRIMARY KEY(CourseId)
 );
 
 CREATE TABLE Enrollments (
@@ -45,7 +45,7 @@ CREATE TABLE Lessons (
     Title VARCHAR(100) NOT NULL,
     Content TEXT,
     LessonNumber INT,
-	LessonDuration TIME,
+    LessonDuration TIME,
     FOREIGN KEY (CourseId) REFERENCES Courses(CourseId)
 );
 
@@ -64,20 +64,20 @@ CREATE TABLE Assignments (
     DueDate DATE,
     AssignmentType VARCHAR(30) NOT NULL,
     FOREIGN KEY (CourseId) REFERENCES Courses(CourseId),
-	  CHECK (AssignmentType IN ('peer-reviewed', 'auto-graded', 'instructor-graded'))
+    CHECK (AssignmentType IN ('peer-reviewed', 'auto-graded', 'instructor-graded'))
 );
 
 CREATE TABLE Feedbacks (
     FeedbackID INT PRIMARY KEY ,
-	  FeedbackType VARCHAR(40),
+    FeedbackType VARCHAR(40),
     StudentId INT,
-	  CourseId INT,
-	  QuizId INT,
-	  AssignmentID INT,
+    CourseId INT,
+    QuizId INT,
+    AssignmentID INT,
     Remark TEXT,
     FOREIGN KEY (StudentId) REFERENCES Students(StudentId),
     FOREIGN KEY (CourseId) REFERENCES Courses(CourseId),
-	  CHECK (FeedbackType IN ('Quiz','Assignment'))
+    CHECK (FeedbackType IN ('Quiz','Assignment'))
     
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE CourseProgress (
 CREATE TABLE Payments (
     PaymentID INT PRIMARY KEY ,
     StudentId INT,
-	  CourseId INT,
+    CourseId INT,
     Amount DECIMAL(10, 2),
     PaymentMethod VARCHAR(50),
     PaymentStatus VARCHAR(20), 
