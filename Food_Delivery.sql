@@ -48,13 +48,11 @@ CREATE TABLE DeliveryDrivers (
 CREATE TABLE Orders (
     OrderID INT PRIMARY KEY IDENTITY(1,1),
     CustomerId INT,
-    CustomizationID INT,
     DriverId INT,
     OrderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     Status VARCHAR(20), 
     TotalAmount DECIMAL(10, 2),
     FOREIGN KEY (CustomerId) REFERENCES Customers(CustomerId),
-    FOREIGN KEY (CustomizationID) REFERENCES Customizations(CustomizationID),
     FOREIGN KEY (DriverId) REFERENCES DeliveryDrivers(DriverId),
     CHECK (Status IN ('Pending', 'Delivered', 'Cancelled')) 
 );
@@ -62,8 +60,10 @@ CREATE TABLE Orders (
 CREATE TABLE OrderItems (
     OrderItemID INT PRIMARY KEY IDENTITY(1,1),
     OrderID INT,
+    CustomizationID INT,
     MenuItemId INT,
     Quantity INT,
+    FOREIGN KEY (CustomizationID) REFERENCES Customizations(CustomizationID),
     FOREIGN KEY (OrderId) REFERENCES Orders(OrderID),
     FOREIGN KEY (MenuItemId) REFERENCES MenuItems(MenuItemId),
 );
