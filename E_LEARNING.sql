@@ -77,8 +77,13 @@ CREATE TABLE Feedbacks (
     Remark TEXT,
     FOREIGN KEY (StudentId) REFERENCES Students(StudentId),
     FOREIGN KEY (CourseId) REFERENCES Courses(CourseId),
-    CHECK (FeedbackType IN ('Quiz','Assignment'))
-    
+    FOREIGN KEY (QuizId) REFERENCES Quizzes(QuizId),
+    FOREIGN KEY (AssignmentId) REFERENCES Assignments(AssignmentId),
+    CHECK (FeedbackType IN ('Quiz','Assignment')),
+    CHECK (
+        (FeedbackType = 'Quiz' AND QuizId IS NOT NULL AND AssignmentId IS NULL) OR
+        (FeedbackType = 'Assignment' AND AssignmentId IS NOT NULL AND QuizId IS NULL)
+    ) 
 );
 
 CREATE TABLE Certificates (
