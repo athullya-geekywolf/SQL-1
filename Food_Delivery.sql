@@ -8,24 +8,33 @@ CREATE TABLE Restaurants(
 	Country VARCHAR(30)
 );
 
-CREATE TABLE MenuItems(
-	MenuItemId INT PRIMARY KEY,
-	RestaurantId INT,
-	FoodType VARCHAR(10),
-	FoodCategory VARCHAR(40),
-	FoodItem VARCHAR(30),
-	Price DECIMAL(10,2),
-	FOREIGN KEY (RestaurantId) REFERENCES Restaurants(RestaurantId)
+CREATE TABLE Foods (
+    FoodID INT PRIMARY KEY,
+    FoodType VARCHAR(10),
+    FoodCategory VARCHAR(40),
+    FoodItem VARCHAR(30),
+    
 );
 
+
+CREATE TABLE MenuItems (
+    MenuItemId INT PRIMARY KEY,
+    RestaurantId INT,
+    FoodID INT,
+    Price DECIMAL(10, 2),
+    FOREIGN KEY (RestaurantId) REFERENCES Restaurants(RestaurantId),
+    FOREIGN KEY (FoodID) REFERENCES Foods(FoodID)
+);
+
+
 CREATE TABLE Customers(
-	CustomerId INT PRIMARY KEY,
-	Name VARCHAR(30),
-	Email VARCHAR(50),
-	PhoneNumber VARCHAR(12),
-	City VARCHAR(30),
-	Street VARCHAR(30),
-	Country VARCHAR(30)
+     CustomerId INT PRIMARY KEY,
+     Name VARCHAR(30),
+     Email VARCHAR(50),
+     PhoneNumber VARCHAR(12),
+     City VARCHAR(30),
+     Street VARCHAR(30),
+     Country VARCHAR(30)
 );
 
 CREATE TABLE Customizations (
@@ -48,12 +57,14 @@ CREATE TABLE DeliveryDrivers (
 CREATE TABLE Orders (
     OrderID INT PRIMARY KEY IDENTITY(1,1),
     CustomerId INT,
+    RestaurantId INT,
     DriverId INT,
     OrderDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     Status VARCHAR(20), 
     TotalAmount DECIMAL(10, 2),
     FOREIGN KEY (CustomerId) REFERENCES Customers(CustomerId),
     FOREIGN KEY (DriverId) REFERENCES DeliveryDrivers(DriverId),
+    FOREIGN KEY (RestaurantId) REFERENCES Restaurants(RestaurantId),
     CHECK (Status IN ('Pending', 'Delivered', 'Cancelled')) 
 );
 
