@@ -1,0 +1,56 @@
+
+
+.bg-img{
+    background-image: url("../../assets/atom-biotechnology-nuclear-medicine-with-scientist-rsquo-s-hands-digital-transformation-remix\ 1.png");
+   //background-size: cover;
+   background-position: right center;
+//    background-repeat: no-repeat;
+}
+
+.btn-google{
+    background: url("../../assets/Group\ 40437.svg") no-repeat ;
+}
+
+.btn-fb{
+    background: url("../../assets/Group\ 40438.png") no-repeat ;
+}
+.c{
+    background-color: #fff;
+   // margin-right: -30px;
+    z-index: 1;
+}
+
+.form-cont{
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.section{
+    height: 100vh;
+}
+
+.header{
+    text-align: center;
+}
+
+
+.icolor{
+    background-color: #0b0000;
+}
+// .rounded-edges {
+//     border-top-right-radius: 15px; /* Adjust as needed */
+//     border-bottom-right-radius: 15px; /* Adjust as needed */
+// }
+.form-div {
+    position: relative; /* Enables positioning of child elements */
+  // margin-right: -30px; /* Adjust this value for overlap */
+    z-index: 1; /* Ensure the form is above the image */
+    border-top-right-radius: 15px; /* Rounded top right corner */
+    border-bottom-right-radius: 15px; /* Rounded bottom right corner */
+}
+
+.b-color{
+    background-color: #EB2188;
+    color: white;
+}
+
