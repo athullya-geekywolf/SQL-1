@@ -1,0 +1,93 @@
+<div>
+    <h1>Employee Details</h1>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" >
+        
+        <!-- <span ng-show="employeeForm.name.$touched && employeeForm.name.$invalid">The name is required.</span> -->
+        <div>
+            <label for="name">Employee First Name : </label>
+            <input type="text" formControlName="firstname" >
+            <div *ngIf="employeeForm.controls.firstname.touched && employeeForm.controls.firstname.invalid" style="color:red">
+                <div *ngIf="employeeForm.controls.firstname.hasError('required')">Name is required</div>
+                </div>
+            <!-- <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">Username is required.</span>
+                </span> -->
+        </div>
+        
+        
+        <div>
+            <label for="name">Employee Last Name : </label>
+            <input type="text" formControlName="lastname">
+        </div>
+
+        <div>
+            <label for="email">Employee Email : </label>
+            <input type="text" formControlName="email">
+            <div *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid" style="color:red">
+                <div *ngIf="employeeForm.controls.firstname.hasError('required')">Email is required</div>
+            </div>   
+        </div>
+        
+        <div>
+            <label for="pnumber">Employee Phone Number : </label>
+            <input type="text" formControlName="pNumber">
+            <div *ngIf="employeeForm.controls.pNumber.touched && employeeForm.controls.pNumber.invalid" style="color:red">
+                <div *ngIf="employeeForm.controls.pNumber.hasError('required')">Number is required</div>
+                </div>
+            <div *ngIf="employeeForm.controls.pNumber.hasError('minlength')" style="color: red">
+                Number must be at least 10 characters long
+              </div>
+        </div>
+        
+        <div>
+            <label for="project">Project Scheduled : </label>
+            <ng-select 
+                [items]="projects|active:true"
+                formControlName="project" 
+                bindLabel="name"
+                placeholder="select project">
+            </ng-select>
+            <!-- <select class="drop-down" formControlName="project">
+                <option >Choose the project assigned</option>
+                <option *ngFor="let p of projects|active:true">
+                    {{p.name}}
+                </option>
+            </select> -->
+        </div>
+        
+        <label>Employee Address  </label>
+        <div formGroupName="address">
+        <div>
+            <label for="address1"> Address 1 : </label>
+            <input type="text" formControlName="address1">
+        </div>
+
+        <div>
+            <label for="address1"> Address 2: </label>
+            <input type="text" formControlName="address2">
+        </div>
+
+        <div>
+            <label for="address1"> City : </label>
+            <input type="text" formControlName="city">
+        </div>
+
+        
+    </div>
+       
+        <p>Complete the form to enable button.</p>
+        <button type="submit" [disabled]="!employeeForm.valid">Submit</button>
+</form>
+
+<div *ngIf="data" class="display-details">
+    <h2>Employee Details</h2>
+    <p appColorChange>Name: {{ data.firstname | uppercase }} {{ data.lastname |lowercase }}</p>
+    <!-- <p *ngIf="data.email.includes('@gmail.com')">Email: {{ data.email }}</p> -->
+    <p *appDisplayEmail="data.email">Email: {{ data.email }}</p>
+    <p>Phone Number: {{ data.pNumber }}</p>
+    <p>Project Assigned: {{data.project.name}}</p>
+    <p>Address Line 1: {{ data.address.address1 }}</p>
+    <p>Address Line 2: {{ data.address.address2 }}</p>
+    <p>City: {{ data.address.city }}</p>
+</div>
+</div>
