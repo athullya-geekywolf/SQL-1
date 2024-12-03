@@ -1,0 +1,149 @@
+PSUEDOCODE
+Sum of three numbers
+1.	Declare three variables num1, num2, num3.
+2.	Read the values of num1, num2, num3 from user.
+3.	Declare variable sum.
+4.	Calculate sum = num1 + num2 + num3.
+5.	Display sum.
+
+Sum of squares of two numbers
+1.	Declare two variables num1, num2.
+2.	Read the values of num1 and num2 from user.
+3.	Declare variable sum_of_squares.
+4.	Calculate sum_of_squares = (num1*num1) + (num2*num2).
+5.	Display sum_of_squares.
+
+Reverse a number
+1. Declare num.
+2. Read num from user.
+3. Initialize reverse = 0, remainder = 0.
+4. WHILE num != 0:
+   a. remainder = num % 10.
+   b. reverse = reverse * 10 + remainder.
+   c. num = num / 10.
+5. Display reverse.
+
+
+Reverse a string
+1. Declare str.
+2. Read str from user.
+3. Initialize reverse_str = "".
+4. FOR i from (length of str) - 1 to 0:
+   a. Append str[i] to reverse_str.
+5. Display reverse_str.
+
+
+Find the given character in the string, return true or false
+1. Declare str, find_char.
+2. Read values from user.
+3. Initialize found = false.
+4. FOR each character in str:
+   a. IF character == find_char THEN:
+      i. found = true.
+      ii. BREAK.
+5. Return found.
+
+
+Find the number of occurrences of a character in a given string
+1. Declare str, find_char.
+2. Read values from user.
+3. Initialize count = 0.
+4. FOR each character in str:
+   a. IF character == find_char THEN:
+      i. count += 1.
+5. Display count.
+
+
+Fibonacci series of numbers
+1. Declare n.
+2. Read n from user.
+3. Initialize first_num = 0, second_num = 1.
+4. IF n == 1 THEN:
+   a. Display first_num.
+   ELSE IF n >= 2 THEN:
+      a. Display first_num and second_num.
+5. FOR i from 3 to n:
+   a. next = first_num + second_num.
+   b. Display next.
+   c. first_num = second_num.
+   d. second_num = next.
+
+
+Tower of Hanoi
+1.	Declare and read n ( number of disks ).
+2.	Label rods as source (s), auxillary (a), destination (d).
+3.	IF n is odd THEN:
+    a.	WHILE all disks are not moved to destination:
+        i.	Move the smallest disk from s to d.
+        ii.	IF top disk on s is smaller than a or a is empty THEN:
+                1.	Move top disk from s to a 
+            ELSE
+                1.	Move top disk from a to s.
+        iii. IF top disk on a is smaller than top disk on d or d is empty THEN:
+                1.	Move top disk from a to d.
+            ELSE
+                1.	Move top disk from d to a.
+4.	ELSE IF n is even THEN:
+    a.	WHILE all disks are not moved to destination:
+        i.	Move the smallest disk from s to a.
+        ii.	IF top disk on s is smaller than d or d is empty THEN:
+                1.	Move top disk from s to d.
+            ELSE
+                1.Move top disk from d to s.
+        iii. IF top disk on a is smaller than top disk on d or d is empty THEN:
+                1.	Move top disk from a to d.
+            ELSE
+                1.	Move top disk from d to a.
+5.	Continue until all are moved to destination.
+6.	Output the sequence of moves.
+
+ 
+
+Linear search
+1. Declare arr.
+2. Read elements of arr from user.
+3. Declare target and read value.
+4. Initialize found = false.
+5. FOR i from 0 to (length of arr) - 1:
+   a. IF arr[i] == target THEN:
+      i. found = true.
+      ii. BREAK.
+6. IF found THEN:
+   a. Display position i.
+   ELSE:
+   a. Display "not found".
+
+
+Binary search
+1. Declare arr.
+2. Read sorted arr from user.
+3. Declare target and read value.
+4. Initialize low = 0, high = length of arr - 1.
+5. WHILE low <= high:
+   a. mid = (low + high) / 2.
+   b. IF arr[mid] == target THEN:
+      i. Display mid.
+      ii. BREAK.
+   c. ELSE IF arr[mid] < target THEN:
+      i. low = mid + 1.
+   d. ELSE:
+      i. high = mid - 1.
+6. IF low > high THEN:
+   a. Display "not found".
+
+
+Bubble sort
+1. Declare arr.
+2. Read elements of arr from user.
+3. Initialize n = length of arr.
+4. FOR i = 0 to n - 1:
+   a. FOR j = 0 to n - 1 - i:
+      i. IF arr[j] > arr[j + 1] THEN:
+         1. Swap arr[j] and arr[j + 1].
+5. Display sorted array.
+
+
+
+	
+
+
